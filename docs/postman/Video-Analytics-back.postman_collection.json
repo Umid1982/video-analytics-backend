@@ -1,0 +1,703 @@
+{
+	"info": {
+		"_postman_id": "202ac433-2135-484f-a807-c52a9ffa9efd",
+		"name": "Video-Analytics-back",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27091565"
+	},
+	"item": [
+		{
+			"name": "Video",
+			"item": [
+				{
+					"name": "Старт Анализа видио",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|OZJJca1LWvjwJrni3lz6l7qAIMl2uAMOlA8XNw2Bf2c95f47",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"source_type\": \"file\",\n  \"source_path\": \"./videos/test_video.mp4\",\n  \"duration\": 10,\n  \"confidence_threshold\": 0.5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiUrl}}/api/sessions",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"api",
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Проверка статуса видео",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|OZJJca1LWvjwJrni3lz6l7qAIMl2uAMOlA8XNw2Bf2c95f47",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{apiUrl}}/api/sessions/4/status",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"api",
+								"sessions",
+								"4",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Список лист",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|OZJJca1LWvjwJrni3lz6l7qAIMl2uAMOlA8XNw2Bf2c95f47",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{apiUrl}}/api/sessions?status=started",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"api",
+								"sessions"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "started"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|OZJJca1LWvjwJrni3lz6l7qAIMl2uAMOlA8XNw2Bf2c95f47",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{apiUrl}}/api/sessions/1",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"api",
+								"sessions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|OZJJca1LWvjwJrni3lz6l7qAIMl2uAMOlA8XNw2Bf2c95f47",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{apiUrl}}/api/sessions/1",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"api",
+								"sessions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Report",
+			"item": [
+				{
+					"name": "Генерация",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|OZJJca1LWvjwJrni3lz6l7qAIMl2uAMOlA8XNw2Bf2c95f47",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"session_id\": \"2fb73e1b-d94e-4725-9d80-ef4ac667a1cc\",\n  \"report_type\": \"summary\",\n  \"include_heatmap\": true,\n  \"include_timeline\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiUrl}}/api/reports/generate",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"api",
+								"reports",
+								"generate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Аналитика",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|OZJJca1LWvjwJrni3lz6l7qAIMl2uAMOlA8XNw2Bf2c95f47",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{apiUrl}}/api/reports/sessions/2fb73e1b-d94e-4725-9d80-ef4ac667a1cc/analytics",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"api",
+								"reports",
+								"sessions",
+								"2fb73e1b-d94e-4725-9d80-ef4ac667a1cc",
+								"analytics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "heatmap",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|OZJJca1LWvjwJrni3lz6l7qAIMl2uAMOlA8XNw2Bf2c95f47",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{apiUrl}}/api/reports/sessions/2fb73e1b-d94e-4725-9d80-ef4ac667a1cc/heatmap",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"api",
+								"reports",
+								"sessions",
+								"2fb73e1b-d94e-4725-9d80-ef4ac667a1cc",
+								"heatmap"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detection-stats",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|OZJJca1LWvjwJrni3lz6l7qAIMl2uAMOlA8XNw2Bf2c95f47",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{apiUrl}}/api/reports/sessions/2fb73e1b-d94e-4725-9d80-ef4ac667a1cc/detection-stats",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"api",
+								"reports",
+								"sessions",
+								"2fb73e1b-d94e-4725-9d80-ef4ac667a1cc",
+								"detection-stats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "summary",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|OZJJca1LWvjwJrni3lz6l7qAIMl2uAMOlA8XNw2Bf2c95f47",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{apiUrl}}/api/reports/sessions/2fb73e1b-d94e-4725-9d80-ef4ac667a1cc/summary",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"api",
+								"reports",
+								"sessions",
+								"2fb73e1b-d94e-4725-9d80-ef4ac667a1cc",
+								"summary"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Info",
+			"item": [
+				{
+					"name": "{{apiUrl}}/api/system",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|OZJJca1LWvjwJrni3lz6l7qAIMl2uAMOlA8XNw2Bf2c95f47",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{apiUrl}}/api/system",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"api",
+								"system"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{apiUrl}}/api/system/health",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|OZJJca1LWvjwJrni3lz6l7qAIMl2uAMOlA8XNw2Bf2c95f47",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{apiUrl}}/api/system/health",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"api",
+								"system",
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{apiUrl}}/api/system/info",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|OZJJca1LWvjwJrni3lz6l7qAIMl2uAMOlA8XNw2Bf2c95f47",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{apiUrl}}/api/system/info",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"api",
+								"system",
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{apiUrl}}/api/system/metrics",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|OZJJca1LWvjwJrni3lz6l7qAIMl2uAMOlA8XNw2Bf2c95f47",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{apiUrl}}/api/system/metrics",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"api",
+								"system",
+								"metrics"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Регистрация",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"umidurinov@example.com\",\n  \"password\": \"umid12345\",\n  \"password_confirmation\": \"umid12345\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiUrl}}/api/auth/register",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обо мне",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "9|GOSTdlq3foQTCYHrYYNmuq6gpHYzT62wveh8T2MOb5721b3b",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{apiUrl}}/api/auth/me",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Логин",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"umidurinov@example.com\",\n  \"password\": \"umid12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiUrl}}/api/auth/login",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Выход",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "9|GOSTdlq3foQTCYHrYYNmuq6gpHYzT62wveh8T2MOb5721b3b",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiUrl}}/api/auth/logout",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
