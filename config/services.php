@@ -10,4 +10,8 @@ return [
         'retry_sleep_ms' => env('FASTAPI_RETRY_SLEEP_MS', 200),
     ],
 
+    'telegram' => [
+        'bot_token' => env('TELEGRAM_BOT_TOKEN'),
+        'chat_id' => env('TELEGRAM_CHAT_ID'),
+    ],
 ];
