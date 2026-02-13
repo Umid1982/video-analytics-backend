@@ -15,7 +15,7 @@ class SessionStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'source_type' => 'required|string|in:file,url,stream',
+            'source_type' => 'required|string|in:file,url,stream,rtsp',
             'source_path' => 'required|string',
             'duration' => 'nullable|integer|min:1',
             'confidence_threshold' => 'nullable|numeric|min:0|max:1',
